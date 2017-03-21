@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	function arr(){
+		var re=new Array()
+
+		for(var i=0;i<10;i++){
+			re[i]=function(){
+				return i;
+			}
+		}
+		return re
+	}
+
+	var a=arr();
+	console.log(a[2]())
+</script>
+</body>
+</html>

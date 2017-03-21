@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="./sky.js"></script>
+	<script type="text/javascript" src="./jquery-1.11.3.min.js"></script>
+</head>
+<style type="text/css">
+*{
+	padding:0;
+	margin: 0;
+}
+.cb-intro{
+	-webkit-transform: scaleX(-1); 
+    /transform: scaleX(-1); 
+}
+.img-bg{
+	width: 100%;
+	position: fixed;
+	bottom:0;
+	left: 0px;
+}
+</style>
+<body style="background:#004bd3" >
+<div class="cb-intro"><canvas id="intro-sky" ></div>
+<img src="./landscape.svg" class="img-bg">
+
+<script type="text/javascript">
+var sky= new Milkyway({
+            id: "intro-sky",
+            popularity: 0.8, // Per Screen Width
+            freezedRollupSpeed: 0.015,
+            speedMin: 0.05,
+            maxTrailLength: 0.20,
+            soundId: "intro-audio"
+        });
+
+        sky.populateSky();
+        sky.drawStars();
+        sky.registerHandler(".cb-intro");
+       /* setTimeout(function(){
+
+        })*/
+        sky.playAnimate();
+</script>
+</body>
+</html>

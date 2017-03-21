@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+function Super(){
+	this.p=true;
+}
+Super.prototype.getP=function(){
+	return this.p;
+}
+
+
+function Sub(){
+	this.b=true;
+}
+Sub.prototype=new Super()
+Super.prototype.getb=function(){
+	return this.b;
+}
+
+var instance=new Sub();
+
+console.log(instance.getP(),instance.p,instance.constructor,instance.b)
+
+var person={
+	name:1,
+	arr:[1,2,3],
+	obj:true
+}
+
+function object(o){
+	function F(){};
+	F.prototype=o;
+	return new F();
+}
+
+function init(obj1,obj2){
+	var p=object(obj2.prototype)
+	p.constructor=obj1;
+	obj1.prototype=p
+}
+
+var c=object(person)
+var d=object(person)
+console.log(c.name=2,d.name)
+
+
+var e=Object.create(person)
+
+console.log(e)
+
+function ob(o){
+	return o;
+}
+
+var cc=object(person);
+cc.name=3;
+console.log(person)
+for(var x in cc){
+	console.log(x)
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+function init(obj1,obj2){
+	function F(){};
+	F.prototype=obj2.prototype
+	var p=new F();
+	p.constructor=obj1;
+	obj1.prototype=p
+}
+
+
+
+function Super(){
+	this.p=true;
+}
+Super.prototype.getP=function(){
+	return this.p;
+}
+
+function Sub(){
+	Super.call(this)
+	this.b=true;
+}
+
+init(Sub,Super)
+
+Sub.prototype.getB=function(){
+	return this.b=false
+}
+
+var a=new Sub();
+for(var x in a){
+	console.log(x+":"+a[x])
+}
+
+</script>
+
+</body>
+</html>

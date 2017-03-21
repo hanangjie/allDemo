@@ -97,3 +97,35 @@ Dog.prototype = {
 console.log(dog.constructor.prototype) // Dog()
 var newDog = new Dog();
 console.log(dog.constructor,typeof dog.constructor.prototype.paws,newDog.prototype)
+
+
+
+function Newjs(name){
+	var o=new Object();
+	o.name=name
+	o.sayName=function(){
+		console.log(this.name)
+	}
+	return o;
+}
+
+var oo=new Newjs("a");
+oo.sayName()
+
+
+var arr=new Array(),arr1=new Array();
+arr.push([1,2,3])
+arr1.push.apply(arr1,[1,2,3])
+console.log(arr,arr1)
+
+function SaveModel(name){
+	var o=new Object();
+
+	o.sayName=function(){
+		console.log(name)
+	}
+	return o;
+}
+
+var saveModel=SaveModel("savemodle");
+saveModel.sayName();

@@ -1,0 +1,14 @@
+
+.html {
+    float: left;
+    font-size:34px;
+    text-align: center;
+}
+body {
+    background: green;
+    font-size:34px;
+    text-align: center;
+}
+.b{
+    float: left;
+}

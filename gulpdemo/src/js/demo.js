@@ -1,0 +1,1 @@
+console.log("this is link demo.js1"),$(function(){console.log(1),console.log(2)});

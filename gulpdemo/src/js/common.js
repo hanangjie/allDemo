@@ -1,0 +1,1 @@
+console.log("this is link common.js1");

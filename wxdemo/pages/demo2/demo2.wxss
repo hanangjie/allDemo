@@ -1,0 +1,5 @@
+/* pages/demo2/demo2.wxss */
+
+.a{
+    background: blue
+}

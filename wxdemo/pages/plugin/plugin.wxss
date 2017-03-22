@@ -1,0 +1,5 @@
+/* pages/plugin/plugin.wxss */
+.scroll-view-item{
+    height: 100px;
+    background: #ff0000
+}

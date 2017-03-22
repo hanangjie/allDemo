@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<block  class="log-list">
+    <navigator class="log-item" url="../logs/logs" hover-class="navigator-hover">logs</navigator>
+    <navigator class="log-item" url="../list/list" hover-class="navigator-hover">list</navigator>
+    <navigator class="log-item" url="../demo1/demo1" hover-class="navigator-hover">demo1</navigator>
+    <navigator class="log-item" url="../demo2/demo2" hover-class="navigator-hover">demo2</navigator>
+    <navigator class="log-item" url="../temp/temp" hover-class="navigator-hover">temp</navigator>
+    <navigator class="log-item" url="../fun/fun" hover-class="navigator-hover">fun</navigator>
+    <navigator class="log-item" url="../imp/imp" hover-class="navigator-hover">import</navigator>
+    <navigator class="log-item" url="../plugin/plugin" hover-class="navigator-hover">plugin</navigator>
+    
+</block>

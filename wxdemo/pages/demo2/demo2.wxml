@@ -1,0 +1,43 @@
+<!--pages/demo2/demo2.wxml-->
+<view  class="a"> {{message}} </view>
+
+<view wx:for="{{array}}"> {{item}} </view>
+
+<view wx:if="{{view == 'WEBVIEW'}}"> WEBVIEW </view>
+<view wx:elif="{{view == 'APP'}}"> APP </view>
+<view wx:else="{{view == 'MINA'}}"> MINA </view>
+
+<template name="s">
+  <view>
+    FirstName: {{firstName}}, LastName: {{lastName}}
+  </view>
+</template>
+
+<template is="s" data="{{...staffA}}"></template>
+<template is="s" data="{{...staffB}}"></template>
+<template is="s" data="{{...staffC}}"></template>
+<template is="s" data="{{...staffC}}"></template>
+
+<view wx:if="{{!condition}}"> WEBVIEW </view>
+
+<template name="objectCombine">
+  <view>
+    FirstName: {{bar}}, LastName: {{lastName}}{{condition}}
+  </view>
+</template>
+<template is="objectCombine" data="{{for: message, bar: b}}"></template>
+<template is="objectCombine" data="{{...staffA,bar: message,condition}}"></template>
+<view wx:for="{{[zero, 1, 2, 3, 4]}}"> {{item}} </view>
+
+<block wx:if="{{true}}">
+  <view> view1 </view>
+  <view> view2 </view>
+</block>
+<block hidden="true">
+  <view> view1 </view>
+  <view> view2 </view>
+</block>
+<block hidden="false">
+  <view> view1 </view>
+  <view> view2 </view>
+</block>

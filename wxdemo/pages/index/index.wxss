@@ -1,0 +1,10 @@
+/**index.wxss**/
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+.log-item {
+  margin: 10rpx;
+  margin-left: 20px;
+}

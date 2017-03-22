@@ -1,0 +1,2 @@
+<button id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me! </button>
+<view style="width:100px">{{html}}</view>

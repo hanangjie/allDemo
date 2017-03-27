@@ -124,11 +124,76 @@ H(tmpl(addrs))
 		</ul>
 		`;
 		let evalExpr = /<%=(.+?)%>/g;
-let expr = /<%([\s\S]+?)%>/g;
+		let expr = /<%([\s\S]+?)%>/g;
 
-template = template
-  .replace(evalExpr, '`); \n  echo( $1 ); \n  echo(`')
-  .replace(expr, '`); \n $1 \n  echo(`');
 
-template = 'echo(`' + template + '`);';
+		function compile(template){
+		  var evalExpr = /<%=(.+?)%>/g;
+		  var expr = /<%([\s\S]+?)%>/g;
+
+		  template = template
+		    .replace(evalExpr, '`); \n  echo( $1 ); \n  echo(`')
+		    .replace(expr, '`); \n $1 \n  echo(`');
+
+		  template = 'echo(`' + template + '`);';
+
+		  var script =
+		  `(function parse(data){
+		    var output = "";
+
+		    function echo(html){
+		      output += html;
+		    }
+
+		    ${ template }
+
+		    return output;
+		  })`;
+
+		  return eval(script);
+		}
+		var parse = compile(template);
+		H(parse({supplies: [ "broom", "mop", "cleaner" ] }))
+}
+
+{
+	let a = 5;
+	let b = 10;
+function tag(s, v1, v2) {
+  H(s[0]);
+  H(s[1]);
+  H(s[2]);
+  H(v1);
+  H(v2);
+
+  return "OK";
+}
+	tag`Hello ${ a + b } world ${ a * b }`;
+// 等同于
+	tag(['Hello ', ' world ', ''], 15, 50);
+
+}
+
+{
+	let total = 30;
+let msg = passthru`The total is ${total} (${total*1.05} with tax)`;
+
+function passthru(literals) {
+  let result = '';
+  let i = 0;
+
+  while (i < literals.length) {
+    result += literals[i++];
+    if (i < arguments.length) {
+      result += arguments[i];
+      
+  	console.log(result,i)
+    }
+  }
+  	console.log(result,i)
+
+  return result;
+}
+
+H(msg)
 }

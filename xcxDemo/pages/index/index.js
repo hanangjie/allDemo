@@ -5,7 +5,8 @@ Page({
   data: {
     motto: '你好 ',
     userInfo: {},
-    temp:""
+    temp:"",
+    model:""
   },
   //事件处理函数
   bindViewTap: function() {
@@ -32,6 +33,13 @@ Page({
       that.setData({
         userInfo:userInfo
       })
+    })
+    wx.getSystemInfo({
+      success: function(res) {
+         that.setData({
+          model:res.model
+        })
+      }
     })
   }
 })

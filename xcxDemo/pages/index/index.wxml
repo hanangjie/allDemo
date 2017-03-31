@@ -1,8 +1,70 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}{{userInfo.nickName}}{{model}}</text>
-  </view>
-    <button  bindtap="bindViewTap">上传照片</button>
-    <image src="{{temp}}"></image>
+    <view class="enter">
+          <label>体重(kg)</label><input bindchange="bindChange" id="weight" type="text"  />
+    </view>
+    <view class="enter">
+          <label>身高(m)</label><input bindchange="bindChange" id="height" type="text" />
+    </view>
+    {{BMI}}
+    <button class="button"  bindtap="BMIHandle">计算</button>
+
+    <view class="table">
+        <view class="table-tr">
+            <view class="table-th" style="width:60px"></view>
+            <view class="table-th">WHO标准</view>
+            <view class="table-th">亚洲标准</view>
+            <view class="table-th">中国标准</view>
+            <view class="table-th">发病危险性</view>
+        </view>
+        <view class="table-tr">
+            <view class="table-td">偏瘦</view>
+            <text class="table-td">{{'<'}}18.5</text>
+            <view class="table-td">{{'<'}}18.5</view>
+            <view class="table-td">{{'<'}}18.5</view>
+            <view class="table-td">低（但其它疾病危险性增加）</view>
+        </view>
+        <view class="table-tr">
+            <view class="table-td">正常</view>
+            <text class="table-td">18.5-24.9</text>
+            <view class="table-td">18.5-22.9</view>
+            <view class="table-td">18.5-23.9</view>
+            <view class="table-td">正常</view>
+        </view>
+        <view class="table-tr">
+            <view class="table-td">超重</view>
+            <text class="table-td">≥25</text>
+            <view class="table-td">≥23</view>
+            <view class="table-td">≥24</view>
+            <view class="table-td"></view>
+        </view>
+        <view class="table-tr">
+            <view class="table-td">偏胖</view>
+            <text class="table-td">25.0～29.9</text>
+            <view class="table-td">23～24.9</view>
+            <view class="table-td">24～27.9</view>
+            <view class="table-td">增加</view>
+        </view>
+        <view class="table-tr">
+            <view class="table-td">肥胖</view>
+            <text class="table-td">30.0～34.9</text>
+            <view class="table-td">25～29.9</view>
+            <view class="table-td">≥28</view>
+            <view class="table-td">中度增加</view>
+        </view>
+        <view class="table-tr">
+            <view class="table-td">重度肥胖</view>
+            <text class="table-td">35.0～39.9</text>
+            <view class="table-td">≥30</view>
+            <view class="table-td">----</view>
+            <view class="table-td">严重增加</view>
+        </view>
+        <view class="table-tr">
+            <view class="table-td">极重度肥胖</view>
+            <text class="table-td">≥40.0</text>
+            <view class="table-td">≥40.0</view>
+            <view class="table-td">≥40.0</view>
+            <view class="table-td">非常严重增加</view>
+        </view>
+    </view>
 </view>

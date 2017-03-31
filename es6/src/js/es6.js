@@ -178,7 +178,7 @@ function tag(s, v1, v2) {
 	let total = 30;
 let msg = passthru`The total is ${total} (${total*1.05} with tax)`;
 
-function passthru(literals) {
+/*function passthru(literals) {
   let result = '';
   let i = 0;
 
@@ -186,14 +186,47 @@ function passthru(literals) {
     result += literals[i++];
     if (i < arguments.length) {
       result += arguments[i];
-      
-  	console.log(result,i)
     }
   }
-  	console.log(result,i)
 
   return result;
+}*/
+
+	function passthru(literals, ...values) {
+	  var output = "";
+	  for (var index = 0; index < values.length; index++) {
+	    output += literals[index] + values[index];
+	  }
+
+	  output += literals[index]
+	  return output;
+	}
+H(msg)
 }
 
-H(msg)
+{
+	let s="Hello world"
+	H(s.startsWith('Hello',2))//false
+	H(s.endsWith('Hello',5))//true
+	H(s.endsWith('w',7))//true
+	H(s.includes('Hello',5))//false
+	H(s.includes('wor',5))//true
+	//endsWith的行为与其他两个方法有所不同。它针对前n个字符
+	H('x a'.repeat(3))//"xx ax ax a"
+	H('na'.repeat(2.9)) // "nana"
+}
+{H('<p>&lt;script&gt;alert("abc")&lt;/script&gt; has sent you a message.</p>')}
+{H(`123`)
+console.log`12\n3`
+let s=(s)=>{
+		H(s.raw[0])
+		H(s[0])
+	}
+	s`12\n3`
+}
+
+{
+	let a=[{a:1},{aa:2,a2:{a3:{a4:1}}}]
+	let b=[]
+	$.extend()
 }

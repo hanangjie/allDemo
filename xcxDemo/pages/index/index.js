@@ -12,7 +12,7 @@ Page({
   BMIHandle(){
     let BMI=(inputArray["weight"]/(inputArray["height"]*inputArray["height"])).toFixed(2)
     this.setData({
-        BMI:BMI
+        BMI:(BMI=="NaN"?0:BMI)
       })
   },
   onLoad: function () {

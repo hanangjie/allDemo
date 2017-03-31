@@ -6,8 +6,13 @@
     <view class="enter">
           <label>身高(m)</label><input bindchange="bindChange" id="height" type="text" />
     </view>
-    {{BMI}}
-    <button class="button"  bindtap="BMIHandle">计算</button>
+    <view class="enter">
+          <label>BMI指数</label>{{BMI}}
+    </view>
+
+    <view class="btnList">
+          <button class="button"  bindtap="BMIHandle">计算</button>
+    </view>
 
     <view class="table">
         <view class="table-tr">

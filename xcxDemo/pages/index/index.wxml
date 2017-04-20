@@ -11,7 +11,7 @@
     </view>
 
     <view class="btnList">
-          <button class="button"  bindtap="BMIHandle">计算</button>
+          <button class="button"  bindtap="BMIHandle" focus="{{focus}}" >计算</button>
     </view>
 
     <view class="table">

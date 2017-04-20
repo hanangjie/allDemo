@@ -5,6 +5,7 @@ var inputArray={}
 Page({
   data: {
     BMI: '',
+    focus:false
   },
   bindChange(e){
     inputArray[e.currentTarget.id] = e.detail.value

@@ -1,10 +1,10 @@
 <!--index.wxml-->
 <view class="container">
     <view class="enter">
-          <label>体重(kg)</label><input bindchange="bindChange" id="weight" type="text"  />
+          <label>体重(kg)</label><input bindinput="bindChange" id="weight" type="text"  />
     </view>
     <view class="enter">
-          <label>身高(cm)</label><input bindchange="bindChange" id="height" type="text" />
+          <label>身高(cm)</label><input bindinput="bindChange" id="height" type="text" />
     </view>
     <view class="enter">
           <label>BMI指数</label>{{BMI}}

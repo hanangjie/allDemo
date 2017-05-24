@@ -1,0 +1,27 @@
+<html>
+<script>
+var switchHtml="switch(key){"
+for(var i=0;i<1000;i++){
+	switchHtml+="case "+i+":"+" console.log("+i+"); break;"
+}
+switchHtml+="}"
+
+var ifHtml="if(key==0){console.log(0)}"
+for(var i=1;i<1000;i++){
+	ifHtml+="else if(key=="+i+"){console.log("+i+")}"
+}
+function switchFn(key){
+	var t=new Date().getTime()
+	eval(switchHtml)
+	console.log("switchFn"+(new Date().getTime()-t))
+}
+function ifFn(key){
+	var t=new Date().getTime()
+	eval(ifHtml)
+	console.log("ifFn"+(new Date().getTime()-t))
+}
+switchFn(999)
+ifFn(999)
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<html>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>视频截图</title>
+<body>
+	<video id="video" controls="controls" width="50%" src="demo.mp4">
+	</video>
+	<button id="capture">Capture1</button>
+	<div id="output"></div>
+	<script>
+	(function() {
+		  "use strict";
+		  var video, $output,capInterval;
+		  var scale = 0.75;
+		  var captureImage = function() {
+		    var canvas = document.createElement("canvas");
+		    canvas.width = video.videoWidth * scale;
+		    canvas.height = video.videoHeight * scale;
+		    canvas.getContext('2d')
+		       .drawImage(video, 0, 0, canvas.width, canvas.height);
+		    var img = document.createElement("img");
+		    img.src = canvas.toDataURL();
+		    $output.prepend(img);
+		  };
+		  var initialize = function() {
+		    $output = document.getElementById("output");
+		    video = document.getElementById("video");
+		    document.getElementById("capture").onclick=function() {
+		    var canvas = document.createElement("canvas");
+		    canvas.width = video.videoWidth * scale;
+		    canvas.height = video.videoHeight * scale;
+		    canvas.getContext('2d')
+		       .drawImage(video, 0, 0, canvas.width, canvas.height);
+		    var img = document.createElement("img");
+		    img.src = canvas.toDataURL();
+		    $output.prepend(img);
+		  };      
+		  };
+		  
+		  initialize();   
+		  document.getElementById("video").onclick=function(e){
+		  	if(this.getAttribute("captrue")!="true"){
+			  	this.setAttribute("captrue","true")
+			  	capInterval=setInterval(function(){
+			  		document.getElementById("capture").click()
+			  	},50)
+		  	}else{
+			  	this.setAttribute("captrue","false")
+		  		clearInterval(capInterval)
+		  	}
+		  }
+		  
+		}());
+	</script>
+	
+</body>
+</html>

@@ -14,7 +14,7 @@ const styles = {
     backgroundColor: CIRCLE_COLOR,
     position: 'absolute',
     left: 0,
-    top: 10,
+    top: 0,
   },
   container: {
     flex: 1,
@@ -48,12 +48,23 @@ class PanResponderSample extends Component {
   }
 
   render () {
+    console.log("render")
+   
     return (
       <View
-        style={styles.container}>{styles.container.flex}
+        style={styles.container}>
         <View
           ref={(circle) => {
             this.circle = circle;
+
+             this.circle.setNativeProps=function(obj){
+              for(let x in obj.style){
+                styles.circle[x]=obj.style[x]
+              }
+              this.setState({
+                "a":1
+              })
+            }
           }}
           style={styles.circle}
           {...this._panResponder.panHandlers}
@@ -71,11 +82,6 @@ class PanResponderSample extends Component {
       });
     }
   }
-  changeCircle(){
-    styles.circle.left=this._circleStyles.style.left
-    styles.container.flex=2
-    this.render(1);
-  }
 
   _unHighlight () {
 
@@ -92,7 +98,6 @@ class PanResponderSample extends Component {
     if (this.circle && this.circle.setNativeProps) {
       this.circle.setNativeProps(this._circleStyles);
     }
-    this.changeCircle()
   }
 
   _handleStartShouldSetPanResponder (e, gestureState) {

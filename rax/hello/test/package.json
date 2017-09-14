@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverage": true
+  },
+  "dependencies": {
+    "rax-link": "^0.4.2"
+  }
+}

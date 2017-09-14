@@ -9,13 +9,20 @@
   },
   "dependencies": {
     "rax": "^0.3.7",
+    "rax-image": "^0.4.2",
+    "rax-slider": "^0.4.1",
     "rax-text": "^0.3.7",
     "rax-view": "^0.3.7",
     "universal-panresponder": "^0.3.8"
   },
   "devDependencies": {
-    "rax-scripts": "^0.3.7",
     "babel-eslint": "^7.1.0",
-    "eslint": "^3.10.0"
+    "babel-jest": "^20.0.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-rax": "^0.4.2",
+    "eslint": "^3.10.0",
+    "jest": "^20.0.4",
+    "rax-scripts": "^0.3.7",
+    "rax-test-renderer": "^0.4.2"
   }
 }

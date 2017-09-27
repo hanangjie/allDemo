@@ -1,0 +1,26 @@
+{
+  "name": "webpack-react",
+  "version": "0.0.1",
+  "description": "webpack-react template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hanangjie/allDemo.git"
+  },
+  "author": "hanangjie <hanangjie@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hanangjie/allDemo/issues"
+  },
+  "homepage": "https://github.com/hanangjie/allDemo#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "webpack": "^3.6.0"
+  }
+}

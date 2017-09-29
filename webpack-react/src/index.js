@@ -1,8 +1,12 @@
 import _ from 'lodash';
 import Icon from './icon.jpg';
 import printMe from './print.js';
+import c from './c.js';
 
 function component() {
+  if(process.env.NODE_ENV === 'develop'){
+    console.log('it\'s develop environment');
+  }
   var element = document.createElement('div');
   var btn = document.createElement('button');
   
@@ -13,7 +17,7 @@ function component() {
       myIcon.src = Icon;
   
   element.appendChild(myIcon);
-  btn.innerHTML = 'Click me and check the console!111';
+  btn.innerHTML = 'Click me and check the console!12';
   btn.onclick = printMe;
 
   element.appendChild(btn);

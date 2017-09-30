@@ -1,0 +1,17 @@
+{
+  "name": "webpack-plugin",
+  "version": "1.0.3",
+  "description": "a plugin for number change to string,or string to number",
+  "main": "dist/webpack-numbers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "module": "src/index.js",
+  "keywords": [],
+  "author": "hanangjie <hanangjie@gmail.com>",
+  "license": "'MIT'",
+  "devDependencies": {
+    "lodash": "^4.17.4",
+    "webpack": "^3.6.0"
+  }
+}

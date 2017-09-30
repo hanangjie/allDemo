@@ -5,8 +5,12 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
-    print:'./src/print.js'
+    app: './src/index.js'
+    ,vendor: [
+      'lodash',
+       './src/print.js'
+    ]
+    //,print:'./src/print.js'
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),//删除原有的dist
@@ -14,8 +18,12 @@ module.exports = {
       template: './index.html'
       }),//网页打包的模板
     new webpack.optimize.CommonsChunkPlugin({
-            name: 'common' // Specify the common bundle's name.
-      })
+           name: 'vendor' 
+    })
+    ,new webpack.HashedModuleIdsPlugin()//打包输出显示hashid
+    ,new webpack.optimize.CommonsChunkPlugin({
+      name: 'runtime'
+    })//自动打包公告模块
   ],
 
   output: {

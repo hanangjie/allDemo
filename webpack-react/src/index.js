@@ -4,12 +4,12 @@ import _ from 'lodash';
 
 function getComponent() {
   if(process.env.NODE_ENV === 'develop'){
-    console.log('it\'s develop environment');
+    console.log('it\'s develop environment1');
   }
   return import('lodash').then(_ => {
          var element = document.createElement('div');
    
-        element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+        element.innerHTML = _.join(['Hello', 'webpack'], ' 1w');
    
         return element;
    

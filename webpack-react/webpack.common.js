@@ -1,7 +1,6 @@
 var path = require("path");
 const webpack=require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -13,7 +12,6 @@ module.exports = {
     //,print:'./src/print.js'
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),//删除原有的dist
     new HtmlWebpackPlugin({
       template: './index.html'
       }),//网页打包的模板

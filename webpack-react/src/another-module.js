@@ -1,4 +1,4 @@
-import _ from 'lodash';
+
 import webpackNumbers from 'webpack-plugin';
 
 export default function a(){

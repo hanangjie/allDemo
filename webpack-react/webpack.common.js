@@ -6,14 +6,20 @@ module.exports = {
   entry: {
     app: './src/index.js',
     vendor:[
-       'lodash',
-       './src/print.js'
+      'lodash'
     ]
   },
+  devtool:'inline-source-map',//源码调试
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist')//路径
   },
+  plugins:[
+    new HtmlWebpackPlugin({
+      title:'out',
+      src:'./index.html'
+    })
+  ],
   module: {
     rules: [
       {

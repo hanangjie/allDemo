@@ -10,9 +10,9 @@ var path = require('path');
     },
    externals:{
      lodash:{
-       commonjs: 'lodash',
-       commonjs2: 'lodash',
-       amd: 'lodash',
+       commonjs: 'lodash1',
+       commonjs2: 'lodash2',
+       amd: 'lodash3',
        root: '_'
      }
    }

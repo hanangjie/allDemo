@@ -1,6 +1,6 @@
-import _ from 'lodash';
 import numRef from './ref.json';
 
+console.log(_,lodash1,lodash2,lodash3);
 const webpackNumbers={
   numToWord(num){
     return _.reduce(numRef, (accum, ref) => {

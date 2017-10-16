@@ -5,7 +5,8 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   devtool: 'inline-source-map',//实现源码调试
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    port:9999
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),//热加载

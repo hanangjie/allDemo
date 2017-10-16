@@ -19,14 +19,24 @@ module.exports = {
       title:'out',
       src:'./index.html'
     })
-  ],
-  module: {
+  ]
+  ,module: {
     rules: [
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
            'file-loader'
          ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
       }
     ]
   }

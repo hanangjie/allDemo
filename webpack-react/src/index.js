@@ -6,7 +6,7 @@ import webpackNumbers from 'webpack-plugin';
 function getComponent() {
   console.log(webpackNumbers.numToWord(2));
   if(process.env.NODE_ENV === 'develop'){
-    console.log('it\'s develop environment1');
+    console.log(`it\'s develop environment1`);
   }
          var element = document.createElement('div');
    
@@ -14,13 +14,6 @@ function getComponent() {
    
         return element;
    
-  
-}
-function getAnother() {
-  return import('./another-module.js').then(a => {
-        return a;
-   
-      }).catch(error => 'An error occurred while loading the component');
   
 }
 document.body.appendChild(getComponent());

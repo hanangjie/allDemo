@@ -1,0 +1,54 @@
+<html>
+    <body>
+        
+        <div class="block" style="height: 300px;">
+
+    <div class="centered">
+        <h1>haorooms案例题目</h1>
+        <p>haorooms案例内容，haorooms案例内容haorooms案例内容haorooms案例内容haorooms案例内容haorooms案例内容haorooms案例内容haorooms案例内容haorooms案例内容</p>
+    </div>
+
+</div>
+        <style>
+           /* This parent can be any width and height */
+.block {
+  text-align: center;
+}
+
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+/* The element to be centered, can
+   also be of any width and height */ 
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #000;
+  width:50%;
+  height: 50%;
+-webkit-transform: translateX(-50%) translateY(-50%);
+color:#fff;
+}
+</style>
+<table style="width: 100%;">
+  <tr>
+     <td style="text-align: center; vertical-align: middle;">
+          Unknown stuff to be centered.
+     </td>
+  </tr>
+</table>
+    <div class="center">111</div>
+    </body>
+</html>

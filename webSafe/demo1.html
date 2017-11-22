@@ -1,0 +1,16 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <a href="javascript:alert(1)">点击我</a>
+        <div id="t"></div>
+        <input type="text" id="text">
+        <input type="button" onclick="test()" id="s"/>
+    </body>
+    <script>
+        function test(){
+            var str=document.getElementById("text").value;
+            document.getElementById("t").innerHTML="<a href='"+str+"'>testeLink</a>";
+        }
+    </script>
+</html>

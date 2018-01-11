@@ -8,5 +8,13 @@
 </head>
 <body>
   <div id="root"></div>
+        <div id="result"> </div>
+  <script>
+    
+var worker = new Worker('/demo_workers.js');
+
+  worker.onmessage = function (event) {
+    document.getElementById("result").innerHTML=event.data;
+};</script>
 </body>
 </html>

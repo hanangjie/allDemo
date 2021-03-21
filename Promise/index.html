@@ -1,0 +1,88 @@
+<html>
+  <body>
+    <script>
+      console.log('p',1)
+      var a =  new Promise(res => {
+        console.log('p',2)
+        setTimeout(() => {
+          res(1)
+        }, 0);
+      });
+      setTimeout(() => {
+        console.log('p',7);
+      }, 0)
+      a.then(() => {
+        console.log('p',4)
+      }).then(() => {
+        console.log('p', 6)
+      }).then(() => {
+        console.log('p', 6.5)
+      })
+      a.then(() => {
+        console.log('p', 5)
+      }).then(() => {
+        console.log('p', 6.4)
+      }).then(() => {
+        console.log('p', 6.7)
+      })
+      console.log('p',3);
+    </script>
+    <script>
+      var  STATUS = {
+        PENDING: 'PENDING',
+        FULFILLED: 'FULFILLED',
+        REJECTED: 'REJECTED'
+      };
+      function PolyPromise(resolve) {
+        this.state = STATUS.PENDING;
+        this.resolve = [];
+        this.result = null;
+        var that = this;
+        var resolved = function(data) {
+          that.result = data;
+          if(that.resolve.length > 0) {
+            for(let i=that.resolve.length-1; i>=0;i--) {
+              that.resolve[that.resolve.length-1 - i](that.result);
+            }
+            that.state = STATUS.FULFILLED;
+          }
+        }
+        resolve.call(this, resolved);
+      }
+      PolyPromise.prototype.then = function(onresolve) {
+        const that = this;
+        return new PolyPromise(function(resolve) {
+          let result = null;
+          const call = () => {
+            result = onresolve(that.result);
+            resolve(result)
+          }
+          if(that.state === STATUS.FULFILLED) {
+            return call()
+          } else {
+            that.resolve.push(call);
+          }
+        })
+      }
+      var newA = new PolyPromise((res) => {
+        console.log(1)
+        setTimeout(() => {
+          res(3);
+        }, 0)
+        console.log(2)
+      });
+      setTimeout(() => {
+        console.log(7);
+      }, 0)
+      newA.then((d) => {
+        console.log(d);
+        return 5
+      }).then((d) => {
+        console.log(d);
+      })
+      newA.then(() => {
+        console.log(4);
+      })
+    </script>
+  </body>
+</html>
